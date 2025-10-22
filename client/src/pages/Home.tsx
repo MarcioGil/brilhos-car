@@ -11,18 +11,18 @@ const services = [
 ];
 
 const beforeAfter = [
-  { id: 1, before: "/1000042907.jpg", after: "/1000042925.jpg" },
-  { id: 2, before: "/1000042901.jpg", after: "/1000042898.jpg" },
-  { id: 3, before: "/1000042895.jpg", after: "/1000042928.jpg" },
-  { id: 4, before: "/1000042937.jpg", after: "/1000042916.jpg" },
-  { id: 5, before: "/1000042910.jpg", after: "/1000042931.jpg" },
-  { id: 6, before: "/1000042922.jpg", after: "/1000042934.jpg" },
-  { id: 7, before: "/1000042919.jpg", after: "/1000042904.jpg" },
-  { id: 8, before: "/1000042889.jpg", after: "/1000042883.jpg" },
-  { id: 9, before: "/1000042943.jpg", after: "/1000047411.jpg" },
-  { id: 10, before: "/1000042892.jpg", after: "/1000042940.jpg" },
-  { id: 11, before: "/1000042913.jpg", after: "/1000047374.jpg" },
-  { id: 12, before: "/1000047371.jpg", after: "/1000047366.jpg" },
+  { id: 1, before: "/1000042940.jpg", after: "/1000042943.jpg" },
+  { id: 2, before: "/1000042907.jpg", after: "/1000042925.jpg" },
+  { id: 3, before: "/1000042901.jpg", after: "/1000042898.jpg" },
+  { id: 4, before: "/1000042895.jpg", after: "/1000042928.jpg" },
+  { id: 5, before: "/1000042937.jpg", after: "/1000042916.jpg" },
+  { id: 6, before: "/1000042910.jpg", after: "/1000042931.jpg" },
+  { id: 7, before: "/1000042922.jpg", after: "/1000042934.jpg" },
+  { id: 8, before: "/1000042919.jpg", after: "/1000042904.jpg" },
+  { id: 9, before: "/1000042913.jpg", after: "/1000047374.jpg" },
+  { id: 10, before: "/1000047371.jpg", after: "/1000047411.jpg" },
+  { id: 11, before: "/1000042892.jpg", after: "/1000042883.jpg" },
+  { id: 12, before: "/1000042889.jpg", after: "/1000047366.jpg" },
 ];
 
 const values = [
@@ -116,66 +116,71 @@ export default function Home() {
       </section>
 
       {/* Before and After Section */}
-      <section id="antes-depois" className="py-20 bg-gray-50">
+      <section id="antes-depois" className="py-20 bg-gradient-to-b from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">Antes e Depois</h3>
-            <p className="text-lg text-gray-600">Veja a transformação que podemos fazer no seu carro</p>
+            <h3 className="text-5xl font-bold text-gray-900 mb-4">Antes e Depois</h3>
+            <p className="text-xl text-gray-700">Veja a transformação espetacular que realizamos</p>
           </div>
-          <div className="space-y-8">
+
+          {/* Imagens lado a lado */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Imagem Antes */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative h-96 md:h-[400px] bg-gray-200 flex items-center justify-center">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
+              <div className="relative h-80 md:h-96 bg-gray-300 flex items-center justify-center group">
                 <img
                   src={beforeAfter[activeBeforeAfter].before}
                   alt="Antes"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center justify-center">
-                  <span className="text-white text-3xl font-bold">ANTES</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center pb-6">
+                  <span className="text-white text-4xl font-bold drop-shadow-lg">ANTES</span>
                 </div>
               </div>
             </div>
 
             {/* Imagem Depois */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative h-96 md:h-[400px] bg-gray-200 flex items-center justify-center">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
+              <div className="relative h-80 md:h-96 bg-gray-300 flex items-center justify-center group">
                 <img
                   src={beforeAfter[activeBeforeAfter].after}
                   alt="Depois"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center justify-center">
-                  <span className="text-white text-3xl font-bold">DEPOIS</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center pb-6">
+                  <span className="text-white text-4xl font-bold drop-shadow-lg">DEPOIS</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Miniaturas para navegação */}
-            <div className="flex justify-center gap-4 p-8 bg-white rounded-2xl shadow-lg">
+          {/* Seletor de pares */}
+          <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <h4 className="text-center text-2xl font-bold text-gray-900 mb-6">Escolha um serviço para ver a transformação</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {beforeAfter.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveBeforeAfter(idx)}
-                  className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                  className={`relative rounded-xl overflow-hidden border-4 transition-all transform hover:scale-110 ${
                     activeBeforeAfter === idx
-                      ? "border-blue-600 bg-blue-50 scale-105"
-                      : "border-gray-300 hover:border-gray-400 bg-white"
+                      ? "border-blue-600 ring-4 ring-blue-300 scale-105"
+                      : "border-gray-300 hover:border-blue-400"
                   }`}
                 >
-                  <div className="flex gap-2">
+                  <div className="relative h-24 bg-gray-200">
                     <img
                       src={item.before}
                       alt={`Antes ${idx + 1}`}
-                      className="w-12 h-12 rounded object-cover border border-gray-300"
+                      className="w-full h-full object-cover"
                     />
-                    <img
-                      src={item.after}
-                      alt={`Depois ${idx + 1}`}
-                      className="w-12 h-12 rounded object-cover border border-gray-300"
-                    />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">Antes</span>
+                    </div>
                   </div>
-                  <span className="text-xs font-semibold text-gray-700">Par {idx + 1}</span>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white text-center py-2">
+                    <span className="text-sm font-bold">Par {idx + 1}</span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -293,3 +298,4 @@ export default function Home() {
     </div>
   );
 }
+
