@@ -114,33 +114,60 @@ export default function Home() {
             <h3 className="text-4xl font-bold text-gray-900 mb-4">Antes e Depois</h3>
             <p className="text-lg text-gray-600">Veja a transformação que podemos fazer no seu carro</p>
           </div>
-          <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-            <div className="relative h-96 md:h-[500px] bg-gray-200 flex items-center justify-center">
-              <img
-                src={beforeAfter[activeBeforeAfter].before}
-                alt="Antes"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">ANTES</span>
+          <div className="space-y-8">
+            {/* Imagem Antes */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-96 md:h-[400px] bg-gray-200 flex items-center justify-center">
+                <img
+                  src={beforeAfter[activeBeforeAfter].before}
+                  alt="Antes"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center justify-center">
+                  <span className="text-white text-3xl font-bold">ANTES</span>
+                </div>
               </div>
             </div>
-            <div className="flex justify-center gap-4 p-8">
-              {beforeAfter.map((_, idx) => (
+
+            {/* Imagem Depois */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-96 md:h-[400px] bg-gray-200 flex items-center justify-center">
+                <img
+                  src={beforeAfter[activeBeforeAfter].after}
+                  alt="Depois"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center justify-center">
+                  <span className="text-white text-3xl font-bold">DEPOIS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Miniaturas para navegação */}
+            <div className="flex justify-center gap-4 p-8 bg-white rounded-2xl shadow-lg">
+              {beforeAfter.map((item, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveBeforeAfter(idx)}
-                  className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all ${
                     activeBeforeAfter === idx
-                      ? "border-blue-600 scale-105"
-                      : "border-gray-300 hover:border-gray-400"
+                      ? "border-blue-600 bg-blue-50 scale-105"
+                      : "border-gray-300 hover:border-gray-400 bg-white"
                   }`}
                 >
-                  <img
-                    src={beforeAfter[idx].before}
-                    alt={`Galeria ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="flex gap-2">
+                    <img
+                      src={item.before}
+                      alt={`Antes ${idx + 1}`}
+                      className="w-12 h-12 rounded object-cover border border-gray-300"
+                    />
+                    <img
+                      src={item.after}
+                      alt={`Depois ${idx + 1}`}
+                      className="w-12 h-12 rounded object-cover border border-gray-300"
+                    />
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">Par {idx + 1}</span>
                 </button>
               ))}
             </div>
