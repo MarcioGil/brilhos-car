@@ -11,10 +11,18 @@ const services = [
 ];
 
 const beforeAfter = [
-  { id: 1, before: "/img1.jpg", after: "/img2.jpg" },
-  { id: 2, before: "/img3.jpg", after: "/img4.jpg" },
-  { id: 3, before: "/img5.jpg", after: "/img6.jpg" },
-  { id: 4, before: "/img7.jpg", after: "/img8.jpg" },
+  { id: 1, before: "/1000042907.jpg", after: "/1000042925.jpg" },
+  { id: 2, before: "/1000042901.jpg", after: "/1000042898.jpg" },
+  { id: 3, before: "/1000042895.jpg", after: "/1000042928.jpg" },
+  { id: 4, before: "/1000042937.jpg", after: "/1000042916.jpg" },
+  { id: 5, before: "/1000042910.jpg", after: "/1000042931.jpg" },
+  { id: 6, before: "/1000042922.jpg", after: "/1000042934.jpg" },
+  { id: 7, before: "/1000042919.jpg", after: "/1000042904.jpg" },
+  { id: 8, before: "/1000042889.jpg", after: "/1000042883.jpg" },
+  { id: 9, before: "/1000042943.jpg", after: "/1000047411.jpg" },
+  { id: 10, before: "/1000042892.jpg", after: "/1000042940.jpg" },
+  { id: 11, before: "/1000042913.jpg", after: "/1000047374.jpg" },
+  { id: 12, before: "/1000047371.jpg", after: "/1000047366.jpg" },
 ];
 
 const values = [
