@@ -13,16 +13,24 @@ const services = [
 const beforeAfter = [
   { id: 1, before: "/1000042940.jpg", after: "/1000042943.jpg" },
   { id: 2, before: "/1000042907.jpg", after: "/1000042925.jpg" },
-  { id: 3, before: "/1000042901.jpg", after: "/1000042898.jpg" },
-  { id: 4, before: "/1000042895.jpg", after: "/1000042928.jpg" },
-  { id: 5, before: "/1000042937.jpg", after: "/1000042916.jpg" },
-  { id: 6, before: "/1000042910.jpg", after: "/1000042931.jpg" },
-  { id: 7, before: "/1000042922.jpg", after: "/1000042934.jpg" },
-  { id: 8, before: "/1000042919.jpg", after: "/1000042904.jpg" },
-  { id: 9, before: "/1000042913.jpg", after: "/1000047374.jpg" },
-  { id: 10, before: "/1000047371.jpg", after: "/1000047411.jpg" },
-  { id: 11, before: "/1000042892.jpg", after: "/1000042883.jpg" },
-  { id: 12, before: "/1000042889.jpg", after: "/1000047366.jpg" },
+  { id: 3, before: "/1000042937.jpg", after: "/1000042916.jpg" },
+  { id: 4, before: "/1000042910.jpg", after: "/1000042931.jpg" },
+  { id: 5, before: "/1000042922.jpg", after: "/1000042934.jpg" },
+  { id: 6, before: "/1000042919.jpg", after: "/1000042928.jpg" },
+  { id: 7, before: "/1000042913.jpg", after: "/1000047374.jpg" },
+  { id: 8, before: "/1000047411.jpg", after: "/1000042943.jpg" },
+];
+
+const galleryImages = [
+  "/1000042895.jpg",
+  "/1000042898.jpg",
+  "/1000042901.jpg",
+  "/1000042904.jpg",
+  "/1000042889.jpg",
+  "/1000042883.jpg",
+  "/1000042892.jpg",
+  "/1000047366.jpg",
+  "/1000047371.jpg",
 ];
 
 const values = [
@@ -232,6 +240,30 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-5xl font-bold text-gray-900 mb-4">Nossa Oficina</h3>
+            <p className="text-xl text-gray-700">Ambiente profissional e equipado para o melhor atendimento</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((img, idx) => (
+              <div key={idx} className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-shadow">
+                <img
+                  src={img}
+                  alt={`Galeria ${idx + 1}`}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+                  <span className="text-white font-semibold">Galeria {idx + 1}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
